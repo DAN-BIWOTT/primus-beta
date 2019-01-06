@@ -1,0 +1,266 @@
+<!--start sidebar menu -->
+			<div class="sidebar-container">
+				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
+					<div id="remove-scroll" class="left-sidemenu">
+						<ul class="slimscroll-style sidemenu page-header-fixed" data-keep-expanded="false" data-auto-scroll="true"
+						 data-slide-speed="200" style="padding-top: 40px;" id="red" >
+							<li class="sidebar-toggler-wrapper hide">
+								<div class="sidebar-toggler">
+									<span></span>
+								</div>
+							</li>
+							<li class="sidebar-user-panel">
+								<div class="user-panel">
+									<div class="pull-left image">
+									<% if user_signed_in? %>
+										<% if current_user.image.attached? %>
+										<%= link_to about_path do %>
+										   <%= image_tag(current_user.image,:class=>'img-circle user-img-circle',:alt=>'User Image') %>
+										   <% end %>
+										<% else %>
+										   <%= image_tag('dp.jpg') %>
+										<% end %>
+									</div>
+									<div class="pull-left info">
+										<p><%= current_user.schoolName %></p>
+										<% else %>
+										<% redirect_to user_signed_in_path %>
+										<% end %>
+										<a href="#"><i class="fa fa-circle user-online"></i><span class="txtOnline"> Online</span></a>
+									</div>
+								</div>
+							</li>
+							<li class="nav-item start ">
+
+								<%= link_to root_path do %>
+								<%= content_tag :i,"dashboard",:class=>'material-icons' %>
+								<%= content_tag :span,"Dashboard",:class=>'title' %>
+								<% end %>
+								
+							</li> 
+							<li class="nav-item">
+								<!-- <a class="nav-link nav-toggle"> <i class="material-icons">person</i>
+									<span class="title">Teachers</span> <span class="arrow"></span>
+								</a> -->
+<!-- START TEMP -->
+								<%= link_to teachers_path,:class=>'nav-link' do %>
+								<%= content_tag :i,"person",:class=>'material-icons' %>
+								<%= content_tag :span,"Teachers",:class=>'title' %>
+								<% end %>
+<!-- END TEMP -->               
+								
+								<ul class="sub-menu">
+									<li class="nav-item">										<%= link_to teachers_path,:class=>'nav-link'  do%>
+										<%= content_tag :span,"All Teachers",:class=>'title' %>
+										<% end %>											
+									</li>
+									<li class="nav-item">
+										<%= link_to new_teacher_url,:class=>'nav-link'  do%>
+										<%= content_tag :span,"Add Teacher",:class=>'title' %>
+										<% end %>	
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<!-- <a href="#" class="nav-link nav-toggle"><i class="material-icons">group</i>
+									<span class="title">Students</span><span class="arrow"></span></a> -->
+<!-- START TEMP -->
+								<%= link_to students_path,:class=>'nav-link' do %>
+								<%= content_tag :i,"group",:class=>'material-icons' %>
+								<%= content_tag :span,"Students",:class=>'title' %>
+								<% end %>
+<!-- END TEMP --> 
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<%= link_to students_path,:class=>'nav-link'  do%>
+										<%= content_tag :span,"All Students",:class=>'title' %>
+										<% end %>	
+									</li>
+									<li class="nav-item">
+										<%= link_to new_student_url,:class=>'nav-link'  do%>
+										<%= content_tag :span,"Add Student",:class=>'title' %>
+										<% end %>	
+									</li>
+			
+				
+								</ul>
+							</li>
+							<li class="nav-item">
+								<!-- <a href="#" class="nav-link nav-toggle"> <i class="material-icons">school</i>
+									<span class="title">Subject</span> <span class="arrow"></span>
+					
+								</a> -->
+<!-- START TEMP -->
+								<%= link_to subjects_path,:class=>'nav-link' do %>
+								<%= content_tag :i,"school",:class=>'material-icons' %>
+								<%= content_tag :span,"Subject",:class=>'title' %>
+								<% end %>
+<!-- END TEMP --> 
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<%= link_to subjects_path,:class=>'nav-link'  do%>
+										<%= content_tag :span,"Add Subject",:class=>'title' %>
+										<% end %>	
+									</li>
+									<li class="nav-item">
+										<%= link_to new_subject_url,:class=>'nav-link'  do%>
+										<%= content_tag :span,"Add Subject",:class=>'title' %>
+										<% end %>				 
+									</li>								
+								</ul>
+							</li>
+							<li class="nav-item">
+								<!-- <a href="#" class="nav-link nav-toggle"> <i class="material-icons">local_library</i>
+									<span class="title">Library</span> <span class="arrow"></span>
+								</a>
+ -->
+ <!-- START TEMP -->
+								<%= link_to librarys_path,:class=>'nav-link' do %>
+								<%= content_tag :i,"local_library",:class=>'material-icons' %>
+								<%= content_tag :span,"Library",:class=>'title' %>
+								<% end %>
+<!-- END TEMP -->
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<%= link_to librarys_path,:class=>'nav-link' do %>
+										<%= content_tag :span,"All Library Assets",:class=>'title' %>
+										 <% end %>
+									</li>
+									<li class="nav-item">
+										<%= link_to new_library_path,:class=>'nav-link' do %>
+										<%= content_tag :span,"Add Library Asset",:class=>'title' %>
+										 <% end %>
+									</li>
+									
+								</ul>
+							</li>
+							<li class="nav-item">
+								<!-- <a href="#" class="nav-link nav-toggle"> <i class="material-icons">business</i>
+									<span class="title">Departments</span> <span class="arrow"></span>
+								</a> -->
+<!-- START TEMP -->
+								<%= link_to departments_path,:class=>'nav-link' do %>
+								<%= content_tag :i,"business",:class=>'material-icons' %>
+								<%= content_tag :span,"Departments",:class=>'title' %>
+								<% end %>
+<!-- END TEMP -->
+								<ul class="sub-menu">
+									<li class="nav-item">
+										
+										<%= link_to departments_path,:class=>'nav-link' do %>
+										<%= content_tag :span,"All Department",:class=>'title' %>
+										 <% end %>
+										
+									</li>
+									<li class="nav-item">
+										<%= link_to new_department_url,:class=>'nav-link' do %>
+										<%= content_tag :span,"Add Department",:class=>'title' %>
+										 <% end %>
+										</a>
+									</li>	
+								</ul>
+							</li>
+							<li class="nav-item">
+								<!-- <a href="#" class="nav-link nav-toggle"> <i class="material-icons">face</i>
+									<span class="title">Staff</span> <span class="arrow"></span>
+								</a> -->
+<!-- START TEMP -->
+								<%= link_to staffs_path,:class=>'nav-link' do %>
+								<%= content_tag :i,"face",:class=>'material-icons' %>
+								<%= content_tag :span,"Staff",:class=>'title' %>
+								<% end %>
+<!-- END TEMP -->
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<%= link_to staffs_path,:class=>'nav-link' do %>
+										<%= content_tag :span,"All Staff",:class=>'title' %>
+										<% end %>
+									</li>
+									<li class="nav-item">
+										<%= link_to new_staff_path do %>
+										<%= content_tag :span,"Add Staff",:class=>'nav-link' %>
+										<% end %>
+									</li>
+									
+								</ul>
+							</li>
+						<li class="nav-item">
+							<%= link_to exams_path,:class=>'nav-link' do %>
+							<%= content_tag :i,"book",:class=>'material-icons' %>
+							<%= content_tag :span,"Exams",:class=>'title' %>
+							<% end %>
+						</li>
+							<!--<li class="nav-item">
+								<a href="#" class="nav-link nav-toggle"> <i class="material-icons">airline_seat_individual_suite</i>
+									<span class="title">Holiday</span> <span class="arrow"></span>
+								</a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<%= link_to holidays_path,:class=>'nav-link' do %>
+										<%= content_tag :span,"All Holidays",:class=>'title' %>
+										<% end %>
+										
+									</li>
+									<li class="nav-item">
+										
+										<%= link_to new_holiday_path,:class=>'nav-link' do %>
+										<%= content_tag :span,"Add Holidays",:class=>'title' %>
+										<% end %>
+									</li>
+									
+									<li class="nav-item">
+										<a href="#" class="nav-link "> <span class="title">Holiday Calendar</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							 <li class="nav-item">
+								<a href="#" class="nav-link nav-toggle">
+									<i class="material-icons">email</i>
+									<span class="title">Email</span>
+									<span class="arrow"></span>
+									<span class="label label-rouded label-menu label-danger">new</span>
+								</a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<a href="email_inbox.html" class="nav-link ">
+											<span class="title">Inbox</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="email_view.html" class="nav-link ">
+											<span class="title">View Mail</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="email_compose.html" class="nav-link ">
+											<span class="title">Compose Mail</span>
+										</a>
+									</li>
+								</ul>
+							</li> -->
+							<!-- <li class="nav-item">
+								<a href="#" class="nav-link nav-toggle"> <i class="material-icons">monetization_on</i>
+									<span class="title">Fees</span> <span class="arrow"></span>
+								</a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<a href="fees_collection.html" class="nav-link "> <span class="title">Fees Collection</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="add_fees.html" class="nav-link "> <span class="title">Add Fees </span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="fees_receipt.html" class="nav-link "> <span class="title">Fee Receipt</span>
+										</a>
+									</li>
+								</ul>
+							</li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- end sidebar menu-->
+			

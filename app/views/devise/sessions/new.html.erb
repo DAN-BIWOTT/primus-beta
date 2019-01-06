@@ -1,0 +1,42 @@
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="limiter">
+    <div class="container-login100 page-background">
+      <div class="wrap-login100">
+        <form class="login100-form validate-form">
+          <%= devise_error_messages!%>
+          <span class="login100-form-logo">
+            <%= image_tag('school.jpg')%>
+          </span>
+          <span class="login100-form-title p-b-34 p-t-27"> 
+            Log in
+          </span>
+
+          <div class="wrap-input100 validate-input" data-validate="Enter username">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",:class=>'input100',:placeholder=>'School email' %>
+            <span class="focus-input100" data-placeholder="&#xf207;">
+              
+            </span> 
+          </div>
+          <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <%= f.password_field :password, autocomplete: "current-password",:class=>'input100',
+:placeholder=>'Password' %>
+            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+          </div>
+          <div class="contact100-form-checkbox">
+            <%= f.check_box :remember_me,:class=>'input-checkbox100',:id=>'ckb1' %>
+            <label class="label-checkbox100" for="ckb1">
+              Remember me
+            </label>
+          </div>
+          <div class="container-login100-form-btn">
+            <%= f.submit "Log in",:class=>'login100-form-btn' %>
+          </div>
+          <div class="text-center p-t-30">
+            <%= render "devise/shared/links" %>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% end %>
+

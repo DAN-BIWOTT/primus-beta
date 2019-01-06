@@ -1,0 +1,158 @@
+<%= render 'dashboards/hNavBar' %>
+<%= render 'dashboards/vNavBar' %>
+<!-- start page content -->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+					<div class="page-bar">
+						<div class="page-title-breadcrumb">
+							<div class=" pull-left">
+								<div class="page-title">All Staff</div>
+							</div>
+							<ol class="breadcrumb page-breadcrumb pull-right">
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li><a class="parent-item" href="">Other Staff</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li class="active">All Staff</li>
+							</ol>
+						</div>
+					</div>
+					<div class="row">
+						<p id="notice"><%= notice %></p>
+						<div class="col-md-12">
+							<div class="tabbable-line">
+								<ul class="nav customtab nav-tabs" role="tablist">
+									<li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">List View</a></li>
+									<li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">Grid View</a></li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active fontawesome-demo" id="tab1">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="card card-topline-red">
+													<div class="card-head">
+														<header></header>
+										<div class="tools">
+										<a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+										<a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+										<a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+														</div>
+													</div>
+													<div class="card-body ">
+										<div class="row">
+											<div class="col-md-6 col-sm-6 col-6">
+										<div class="btn-group">
+						<%= link_to new_staff_url,:id=>'addRow',:class=>'btn btn-info' do %>
+						<%= content_tag :i,"Add New",:class=>'fa fa-plus' %>
+						<% end %>
+										</div>
+												</div>
+															<div class="col-md-6 col-sm-6 col-6">
+																<div class="btn-group pull-right">
+																	<a class="btn deepPink-bgcolor  btn-outline dropdown-toggle" data-toggle="dropdown">Tools
+																		<i class="fa fa-angle-down"></i>
+																	</a>
+																	<ul class="dropdown-menu pull-right">
+																		<li>
+																			<a href="javascript:;">
+																				<i class="fa fa-print"></i> Print </a>
+																		</li>
+																		<li>
+																			<a href="javascript:;">
+																				<i class="fa fa-file-pdf-o"></i> Save as PDF </a>
+																		</li>
+																		<li>
+																			<a href="javascript:;">
+																				<i class="fa fa-file-excel-o"></i> Export to Excel </a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="table-scrollable">
+															<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+															 id="example4">
+																<thead>
+																	<tr>
+																		<th></th>
+																		<th> Name </th>
+																		<th> Designation </th>
+																		<th> Mobile </th>
+																		<th> Email </th>
+																		<th> Address </th>
+																		<th>Joining Date</th>
+																		<th> Action </th>
+																	</tr>
+																</thead>
+																<tbody>
+													<% @staffs.each do |staff| %>
+													<% if staff.user == current_user %>
+												<tr class="odd gradeX">
+											        <td class="patient-img">
+												<% if staff.image.attached? %>
+													<%= image_tag(staff.image) %>
+												<% else %>
+													<%= image_tag('std10.jpg') %>
+												<% end %>
+														</td>
+															
+							<td class="center"><%= staff.firstName+ '' +staff.lastName %></td>
+							<td><a href="tel:<%= staff.phoneNumber %>">
+								<%= staff.phoneNumber %> </a></td>
+							<td><a href="mailto:<%= staff.email %>">
+								<%= staff.email %> </a></td>
+							<td class="center"><%= staff.education %></td>
+							<td class="center">22 Feb 2000</td>
+							<td>
+										<%= link_to edit_staff_path(staff),:class=>'btn btn-primary btn-xs' do%>
+											<%= content_tag :i,"",:class=>'fa fa-pencil' %>
+
+										<% end %>
+											<%= link_to( staff,:class=>'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' }) do %>
+											<%= content_tag :i,"",:class=>'fa fa-trash-o' %>
+											<% end -%>
+														<% end %>
+																		</td>
+																	</tr>
+																	<% end %>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="tab2">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="card card-topline-aqua">
+													<div class="card-body no-padding ">
+														<div class="doctor-profile">
+															<%= image_tag('std10.jpg',:class=>'doctor-pic') %>
+															<div class="profile-usertitle">
+																<div class="doctor-name">Pooja Patel </div>
+																<div class="name-center"> Librarian </div>
+															</div>
+															<p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
+															<div>
+																<p><i class="fa fa-phone"></i><a href="tel:(123)456-7890"> (123)456-7890</a></p>
+															</div>
+															<div class="profile-userbuttons">
+																<a href="staff_profile.html" class="btn btn-circle deepPink-bgcolor btn-sm">Read More</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end page content -->
+<%= render 'dashboards/chat' %>
+<%= render 'dashboards/footer' %>

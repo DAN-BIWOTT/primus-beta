@@ -1,0 +1,25 @@
+	<% @student.each do |s| %>
+	<% if s.user == current_user %>
+	<tr class="odd gradeX">
+		<td class="patient-img">
+			<% if s.image.attached? %>
+			<%= image_tag(s.image,:class=>'doctor-pic') %>
+			<% else %>
+			<%= image_tag('std1.jpg',:class=>'doctor-pic') %>
+			<% end %>
+		</td>
+		<td class="left"><%= s.id %></td>
+		<td><%= s.firstName+ ' ' +s.lastName %></td>
+		<td class="left">class: <%= s.sClass %> </td>
+		<td><a href="tel:<%= s.mobileNumber %>">
+				<%= s.mobileNumber %> </a></td>
+		<td><a href="mailto:<%= s.email %>">
+				<%= s.email %> </a></td>
+		<td class="left"><%= s.regDate %></td>
+		<td>
+			<%= link_to '',edit_student_url(s),:class=>'btn btn-primary btn-xs fa fa-pencil' %>
+			<%= link_to '',student_path(s),method: :delete,data:{confirm:'Are you sure'},:class=>'btn btn-danger btn-xs fa fa-trash-o' %>
+		</td>
+	</tr>
+	<% end %>
+	<% end %>

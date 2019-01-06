@@ -1,0 +1,37 @@
+<%= render 'dashboards/hNavBar' %>
+<%= render 'dashboards/vNavBar' %>
+<!-- start page content -->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+					<div class="page-bar">
+						<div class="page-title-breadcrumb">
+							<div class=" pull-left">
+								<div class="page-title">Success</div>
+							</div>
+							<ol class="breadcrumb page-breadcrumb pull-right">
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li class="active">Success</li>
+							</ol>
+						</div>
+					</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel">
+					<header class="panel-heading panel-heading-purple">
+						Success </header>
+					<div class="panel-body">
+						<h1 class="text-center text-success">Success!</h1>
+
+						<%= link_to 'back',teachers_path,:class=>'btn btn-circle btn-success' %>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%= render 'dashboards/chat' %>
+<%= render 'dashboards/footer' %>

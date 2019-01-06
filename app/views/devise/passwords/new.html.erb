@@ -1,0 +1,29 @@
+<div class="limiter">
+		<div class="container-login100 page-background">
+			<div class="wrap-login100">
+				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+				<form class="login100-form validate-form">
+					<%= devise_error_messages! %>
+					<span class="login100-form-logo">
+						<%= image_tag('school.jpg') %>
+					</span>
+					<p class="text-center txt-small-heading">
+						Forgot Your Password? Let Us Help You.
+					</p>
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder=>'Enter Your Register Email Address',:class=>'input100' %>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					<div class="container-login100-form-btn">
+						<%= f.submit "Send me reset password instructions",:class=>'login100-form-btn' %>
+					</div>
+					<div class="text-center p-t-27">
+						<%= render "devise/shared/links" %>
+					</div>
+				</form>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+

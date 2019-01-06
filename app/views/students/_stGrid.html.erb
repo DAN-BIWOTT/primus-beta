@@ -1,0 +1,29 @@
+<% @student.each do |s| %>    
+<% if s.user == current_user %>    
+ <div class="col-md-4">
+    <div class="card card-box">
+    		<div class="card-body no-padding ">
+    			<div class="doctor-profile">
+                    <%= s.image != '' ? image_tag(s.image,:class=>'doctor-pic') : image_tag('std1.jpg',:class=>'doctor-pic') %>
+    				<div class="profile-usertitle">
+    					<div class="doctor-name"><%= s.firstName + ' ' +s.lastName %> </div>
+    					<div class="name-center"> Class: <%= s.sClass %> </div>
+    				</div>
+    				<p>A-103, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    				proident, sunt in culpa qui officia deserunt mollit anim id est laborum., Mahatma Road <br />Eldoret</p>
+    				<div>
+    					<p><i class="fa fa-phone"></i><a href="tel:(+254)<%= s.mobileNumber %>"> (+254)<%= s.mobileNumber %></a></p>
+    				</div>
+    				<div class="profile-userbuttons">
+    					<a href="#" class="btn btn-circle deepPink-bgcolor btn-sm">Read More</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>	
+    <% end -%>									
+    <% end %>
